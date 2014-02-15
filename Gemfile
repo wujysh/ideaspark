@@ -5,6 +5,8 @@ gem 'rails', '4.0.2'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0.0.beta'
+  gem 'spork-rails', '4.0.0'
+  gem 'guard-spork', '1.5.1'
 end
 
 # Use sqlite3 as the database for Active Record

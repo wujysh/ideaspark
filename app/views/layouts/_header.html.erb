@@ -1,9 +1,11 @@
-<nav class="navbar navbar-fixed-top" role="navigation">
+<header class="navbar navbar-fixed-top">
   <div class="container">
     <%= link_to "IdeaSpark", '#', id: "logo", class: "navbor-brand" %>
-    <ul class="nav navbar-nav navbar-right">
-      <li><%= link_to "Home",    '#' %></li>
-      <li><%= link_to "Sign in", '#' %></li>
-    </ul>
+    <nav role="navigation">
+      <ul class="nav navbar-nav navbar-right">
+        <li><%= link_to "Home",    home_path %></li>
+        <li><%= link_to "Sign in", about_path %></li>
+      </ul>
+    </nav>
   </div>
-</nav>
+</header>

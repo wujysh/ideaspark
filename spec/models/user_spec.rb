@@ -17,7 +17,7 @@ describe User do
   describe "when name is not present" do
     before { @user.name = " " }
     it { should_not be_valid }
-  end
+  end 
 
   context "when email format is" do
     describe "invalid" do
@@ -49,6 +49,19 @@ describe User do
       user_with_same_email.save
     end
 
+    it { should_not be_valid }
+  end
+
+  describe "when password is not present" do
+    before do
+      @user = User.new(name: "Example", email: "user@example.com",
+                       password: " ", password_confirmation: " ")
+    end
+    it { should_not be_valid }
+  end
+
+  describe "when password doesn't match confirmation" do
+    before { @user.password_confirmation = "mismatch" }
     it { should_not be_valid }
   end
 end

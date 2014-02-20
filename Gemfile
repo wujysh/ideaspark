@@ -7,6 +7,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.0.0.beta'
   gem 'spork-rails', '4.0.0'
   gem 'guard-spork', '1.5.1'
+  gem 'capybara'
 end
 
 group :test do

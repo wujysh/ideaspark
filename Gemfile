@@ -9,6 +9,10 @@ group :development, :test do
   gem 'guard-spork', '1.5.1'
 end
 
+group :test do
+  gem 'factory_girl_rails'
+end
+
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 

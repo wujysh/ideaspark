@@ -1,7 +1,8 @@
 <header class="navbar navbar-fixed-top">
   <div class="container">
-    <%= link_to "IdeaSpark", root_path, id: "logo", class: "navbor-brand" %>
-    <nav role="navigation">
+    <%= link_to "IdeaSpark", root_path, id: "logo", class: "navbar-brand" %>
+    <span class="btn-menu glyphicon glyphicon-cog" data-toggle="collapse" data-target="#navlist"></span>
+    <nav id="navlist" class="navbar-collapse collapse" role="navigation">
       <ul class="nav navbar-nav navbar-right">
         <li><%= link_to "Home",    root_path, class: "hidden-xs" %></li>
         <li><%= link_to "Sign in", signup_path %></li>

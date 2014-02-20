@@ -1,9 +1,9 @@
 <header class="navbar navbar-fixed-top">
   <div class="container">
-    <%= link_to "IdeaSpark", '#', id: "logo", class: "navbor-brand" %>
+    <%= link_to "IdeaSpark", root_path, id: "logo", class: "navbor-brand" %>
     <nav role="navigation">
       <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to "Home",    root_path %></li>
+        <li><%= link_to "Home",    root_path, class: "hidden-xs" %></li>
         <li><%= link_to "Sign in", signup_path %></li>
       </ul>
     </nav>

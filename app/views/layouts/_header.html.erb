@@ -4,8 +4,22 @@
     <span class="btn-menu glyphicon glyphicon-cog" data-toggle="collapse" data-target="#navlist"></span>
     <nav id="navlist" class="navbar-collapse collapse" role="navigation">
       <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to "Home",    root_path, class: "hidden-xs" %></li>
-        <li><%= link_to "Sign in", signup_path %></li>
+        <% if signed_in? %>
+          <li><%= link_to "Users", '#' %></li>
+          <li id="fat-menu" class="dropdown">
+            <button class="btn dropdown-toggle sr-only" id="account-menu" type="button" data-toggle="dropdown">
+                Account <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" role="menu" aria-labelledby="account-menu">
+              <li role="presentation"><%= link_to "Profile", current_user, role: "menuitem", tabindex: "-1" %></li>
+              <li role="presentation"><%= link_to "Settings", '#', role: "menuitem", tabindex: "-1" %></li>
+              <li class="divider"></li>
+              <li role="presentation"><%= link_to "Sign out", signout_path, method: "delete", role: "menuitem", tabindex: "-1" %></li>
+            </ul>
+          </li>
+        <% else %>
+          <li><%= link_to "Sign in", signin_path %></li>
+        <% end %>
       </ul>
     </nav>
   </div>

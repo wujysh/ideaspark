@@ -52,6 +52,21 @@ describe "User pages" do
     end
   end
 
+  describe "forbidden attributes", type: :request do
+    let(:user) { FactoryGirl.create(:user) }
+    let(:params) do
+      { user: { admin: true, password: user.password,
+                password_confirmation: user.password } }
+    end
+
+    before do
+      sign_in user, no_capybara: true
+      patch user_path(user), params
+    end
+
+    specify { expect(user.reload).not_to be_admin }
+  end
+
   describe "signup page" do
     before { visit signup_path }
 

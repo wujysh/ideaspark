@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  attr_reader :admin
   before_save { email.downcase! }
   before_create :create_remember_token
 

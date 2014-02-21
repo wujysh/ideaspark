@@ -5,11 +5,9 @@
     <nav id="navlist" class="navbar-collapse collapse" role="navigation">
       <ul class="nav navbar-nav navbar-right">
         <% if signed_in? %>
-          <li><%= link_to "Users", '#' %></li>
+          <li><%= current_user.name %></li>
           <li id="fat-menu" class="dropdown">
-            <button class="btn dropdown-toggle sr-only" id="account-menu" type="button" data-toggle="dropdown">
-                Account <span class="caret"></span>
-            </button>
+            <a class="dropdown-toggle sr-only" id="account-menu" role="button" data-toggle="dropdown" data-target="#" href="/profile">Account <span class="caret"></span></a>
             <ul class="dropdown-menu" role="menu" aria-labelledby="account-menu">
               <li role="presentation"><%= link_to "Profile", current_user, role: "menuitem", tabindex: "-1" %></li>
               <li role="presentation"><%= link_to "Settings", '#', role: "menuitem", tabindex: "-1" %></li>

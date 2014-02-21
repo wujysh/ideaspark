@@ -21,16 +21,12 @@ describe "Authentication page" do
     describe "with valid information" do
       let(:user) { FactoryGirl.create(:user) }
       before do
-        visit about_path
         visit signin_path
         fill_in "Email", :with => user.email.upcase
         fill_in "Password", :with => user.password
         click_button "Sign in"
       end
       
-      it "should redirect to about path" do
-        response.should redirect_to(about_path)
-      end
       it { should have_link('Sign out', :href => signout_path) }
       it { should_not have_link('Sign in', :href => signin_path) }
     end

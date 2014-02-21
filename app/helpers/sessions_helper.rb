@@ -32,6 +32,7 @@ module SessionsHelper
   end
 
   def redirect_back_or(default)
+    session[:return_to] ||= request.referer
     redirect_to session[:return_to] || default
     session.delete :return_to
   end

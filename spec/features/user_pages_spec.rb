@@ -14,7 +14,10 @@ describe "User pages" do
   end
 
   describe "signup page" do
-    before { visit signup_path }
+    before do
+      visit about_path
+      visit signup_path
+    end
 
     it { should have_content('Sign up') }
     it { should have_title(full_title('Sign up')) }
@@ -51,7 +54,16 @@ describe "User pages" do
           before { click_button submit }
           let(:user) { User.find_by(email: 'user@example.com') }
 
+          it "should redirect to about path" do
+            response.should redirect_to about_path
+          end
+          it { should have_link('Sign out') }
           it { should have_selector('div.alert.alert-success', text: 'Welcome to IdeaSpark') }
+        end
+
+        describe "followed by signout" do
+          before { click_link "Sign out" }
+          it { should have_link('Sign in') }
         end
       end
     end

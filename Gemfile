@@ -4,9 +4,10 @@ source 'http://ruby.taobao.org'
 gem 'rails', '4.0.2'
 
 group :development, :test do
-  gem 'rspec-rails', '~> 3.0.0.beta'
-  gem 'spork-rails', '4.0.0'
-  gem 'guard-spork', '1.5.1'
+  gem 'rspec-rails'
+  gem 'rspec-its'
+  gem 'spork-rails'
+  gem 'guard-spork'
   gem 'capybara'
 end
 

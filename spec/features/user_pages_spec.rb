@@ -7,7 +7,7 @@ describe "User pages" do
 
   describe "profile page" do
     let(:user) { FactoryGirl.create(:user) }
-    before { visit user_path(user) }
+    before { visit profile_path }
 
     it { should have_content(user.name) }
     it { should have_title(user.name) }
@@ -19,39 +19,37 @@ describe "User pages" do
       visit signup_path
     end
 
+    let(:submit) { "Sign up" }
+
     it { should have_content('Sign up') }
     it { should have_title(full_title('Sign up')) }
     
-    describe "fill form" do
-      let(:submit) { "Sign up" }
-
-      describe "with invalid information" do
-        it "should not create a user" do
-          expect { click_button submit }.not_to change(User, :count)
-        end
-
+    describe "with invalid information" do
+      before { click_button submit }
+      
+      describe "should not create a user" do
+        it { should_not change(User, :count) }
+        
         describe "after submission" do
-          before { click_button submit }
-
           it { should have_title('Sign up') }
           it { should have_content('error') }
         end
       end
+    end
 
-      describe "with valid information" do
-        before do
-          fill_in "Name", :with => "Erick"
-          fill_in "Email", :with => "user@example.com"
-          fill_in "Password", :with => "cmbjxccwtn"
-          fill_in "Confirmation", :with => "cmbjxccwtn"
-        end
+    describe "with valid information" do
+      before do
+        fill_in "Name", :with => "Erick"
+        fill_in "Email", :with => "user@example.com"
+        fill_in "Password", :with => "cmbjxccwtn"
+        fill_in "Confirmation", :with => "cmbjxccwtn"
+        click_button submit
+      end
 
-        it "should create a user" do
-          expect { click_button submit }.to change(User, :count).by(1)
-        end
-
+      describe "should create a user" do
+        it { should change(User, :count).by(1)
+        
         describe "after saving the user" do
-          before { click_button submit }
           let(:user) { User.find_by(email: 'user@example.com') }
 
           it "should redirect to about path" do

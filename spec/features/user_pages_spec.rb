@@ -13,9 +13,13 @@ describe "User pages" do
     it { should have_title(user.name) }
   end
 
-  describe "edit page" do
+  describe "edit" do
     let(:user) { FactoryGirl.create(:user) }
-    before { visit profile_edit_path }
+
+    before do
+      sign_in user
+      visit profile_edit_path
+    end
 
     describe "page" do
       it { should have_content("Update your profile") }

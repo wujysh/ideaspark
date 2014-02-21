@@ -7,7 +7,11 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = !params[:id].nil? ? User.find(params[:id]) : current_user
+    @user = user_by_param_or_current 
+  end
+
+  def edit
+    @user = user_by_param_or_current 
   end
   
   def create
@@ -36,7 +40,11 @@ class UsersController < ApplicationController
     end
 
     def correct_user
-      @user = User.find(params[:id])
-      redirect_to root_path unless current_user?(user)
+      @user = user_by_param_or_current 
+      redirect_to root_path unless current_user?(@user)
+    end
+
+    def user_by_param_or_current
+      !params[:id].nil? ? User.find(params[:id]) : current_user
     end
 end

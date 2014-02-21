@@ -17,6 +17,7 @@ class UsersController < ApplicationController
   def update
     @user = user_by_param_or_current
     if @user.update_attributes(user_params)
+      redirect_to @user, :flash => { :success => "Profile updated" }
     else
       render 'edit'
     end

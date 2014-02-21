@@ -20,7 +20,10 @@ describe "Authentication page" do
 
     describe "with valid information" do
       let(:user) { FactoryGirl.create(:user) }
-      before { sign_in user }
+      before do
+        sign_in user
+        visit profile_path
+      end
       
       it { should have_title(user.name) }
       it { should have_link('Profile', :href => profile_path) }

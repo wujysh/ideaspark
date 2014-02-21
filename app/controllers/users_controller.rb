@@ -13,6 +13,14 @@ class UsersController < ApplicationController
   def edit
     @user = user_by_param_or_current 
   end
+
+  def update
+    @user = user_by_param_or_current
+    if @user.update_attributes(user_params)
+    else
+      render 'edit'
+    end
+  end
   
   def create
     @user = User.new(user_params)

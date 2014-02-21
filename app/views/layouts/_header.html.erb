@@ -9,8 +9,8 @@
           <li id="fat-menu" class="dropdown">
             <a class="dropdown-toggle sr-only" id="account-menu" role="button" data-toggle="dropdown" data-target="#" href="/profile">Account <span class="caret"></span></a>
             <ul class="dropdown-menu" role="menu" aria-labelledby="account-menu">
-              <li role="presentation"><%= link_to "Profile", '/profile', role: "menuitem", tabindex: "-1" %></li>
-              <li role="presentation"><%= link_to "Settings", '#', role: "menuitem", tabindex: "-1" %></li>
+              <li role="presentation"><%= link_to "Profile", profile_path, role: "menuitem", tabindex: "-1" %></li>
+              <li role="presentation"><%= link_to "Settings", profile_edit_path, role: "menuitem", tabindex: "-1" %></li>
               <li class="divider"></li>
               <li role="presentation"><%= link_to "Sign out", signout_path, method: "delete", role: "menuitem", tabindex: "-1" %></li>
             </ul>

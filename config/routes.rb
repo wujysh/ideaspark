@@ -1,12 +1,11 @@
 IdeaSpark::Application.routes.draw do
-  devise_for :users
+  devise_for :users, :path => '',
+                     :path_names => { :sign_in => 'signin', :sign_out => 'signout',
+                                      :registration => 'signup' },
+	             :sign_out_via => [ :delete, :post ]
   resources :users
-  resources :sessions, only: [:new, :create, :destroy]
 
   root  'static_pages#home'
-  match '/signup',  to: 'users#new',          via: :get
-  match '/signin',  to: 'sessions#new',       via: :get
-  match '/signout', to: 'sessions#destroy',   via: [:get, :delete]
   match '/about',   to: 'static_pages#about', via: :get
   match '/profile', to: 'users#show',         via: :get
   match '/profile/edit', to: 'users#edit',    via: :get

@@ -4,7 +4,7 @@
     <span class="btn-menu glyphicon glyphicon-cog" data-toggle="collapse" data-target="#navlist"></span>
     <nav id="navlist" class="navbar-collapse collapse" role="navigation">
       <ul class="nav navbar-nav navbar-right">
-        <% if signed_in? %>
+        <% if user_signed_in? %>
           <li><%= current_user.name %></li>
           <li id="fat-menu" class="dropdown">
             <a class="dropdown-toggle sr-only" id="account-menu" role="button" data-toggle="dropdown" data-target="#" href="/profile">Account <span class="caret"></span></a>

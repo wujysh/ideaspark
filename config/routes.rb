@@ -4,6 +4,7 @@ IdeaSpark::Application.routes.draw do
                                       :registration => 'signup' },
 	             :sign_out_via => [ :delete, :post ]
   resources :users
+  resources :sessions
 
   root  'static_pages#home'
   match '/about',   to: 'static_pages#about', via: :get

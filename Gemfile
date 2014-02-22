@@ -58,5 +58,5 @@ gem 'bcrypt-ruby', '~> 3.1.2'
 
 gem 'devise'
 gem 'cancan'
-gem 'role_model'
+gem 'rolify'
 

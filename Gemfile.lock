@@ -98,6 +98,7 @@ GEM
     nio4r (1.0.0)
     nokogiri (1.6.1)
       mini_portile (~> 0.5.0)
+    pg (0.17.1)
     polyglot (0.3.3)
     pry (0.9.12.6)
       coderay (~> 1.0)
@@ -169,7 +170,6 @@ GEM
       actionpack (>= 3.0)
       activesupport (>= 3.0)
       sprockets (~> 2.8)
-    sqlite3 (1.3.8)
     thor (0.18.1)
     thread_safe (0.1.3)
       atomic
@@ -199,12 +199,12 @@ DEPENDENCIES
   guard-spork
   jbuilder (~> 1.2)
   jquery-rails
+  pg
   rails (= 4.0.2)
   rspec-its
   rspec-rails
   sass-rails (~> 4.0.0)
   sdoc
   spork-rails
-  sqlite3
   turbolinks
   uglifier (>= 1.3.0)

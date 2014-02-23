@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140223103403) do
+ActiveRecord::Schema.define(version: 20140223142602) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -62,13 +62,23 @@ ActiveRecord::Schema.define(version: 20140223103403) do
   add_index "commontator_threads", ["commontable_id", "commontable_type"], name: "index_c_t_on_c_id_and_c_type", unique: true, using: :btree
 
   create_table "ideas", force: true do |t|
-    t.string   "title",      default: "", null: false
-    t.string   "content",    default: "", null: false
-    t.integer  "phrase",     default: 0,  null: false
+    t.string   "title",                 default: "", null: false
+    t.string   "content",               default: "", null: false
+    t.integer  "phrase",                default: 0,  null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "cached_votes_total",    default: 0
+    t.integer  "cached_votes_score",    default: 0
+    t.integer  "cached_votes_up",       default: 0
+    t.integer  "cached_votes_down",     default: 0
+    t.integer  "cached_weighted_score", default: 0
   end
 
+  add_index "ideas", ["cached_votes_down"], name: "index_ideas_on_cached_votes_down", using: :btree
+  add_index "ideas", ["cached_votes_score"], name: "index_ideas_on_cached_votes_score", using: :btree
+  add_index "ideas", ["cached_votes_total"], name: "index_ideas_on_cached_votes_total", using: :btree
+  add_index "ideas", ["cached_votes_up"], name: "index_ideas_on_cached_votes_up", using: :btree
+  add_index "ideas", ["cached_weighted_score"], name: "index_ideas_on_cached_weighted_score", using: :btree
   add_index "ideas", ["title"], name: "index_ideas_on_title", unique: true, using: :btree
 
   create_table "manifests", force: true do |t|

@@ -1,6 +1,5 @@
 class IdeasController < ApplicationController
   load_and_authorize_resource
-  acts_as_votable
  
   def index
     @ideas = Idea.paginate(page: params[:page])

@@ -7,10 +7,10 @@ IdeaSpark::Application.routes.draw do
   resources :sessions
   resources :ideas
 
-  root  'static_pages#home'
   match '/about',   to: 'static_pages#about', via: :get
   match '/profile', to: 'users#show',         via: :get
   match '/profile/edit', to: 'users#edit',    via: :get
+  root  'static_pages#home'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

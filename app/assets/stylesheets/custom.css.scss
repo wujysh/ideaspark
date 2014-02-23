@@ -24,9 +24,31 @@ textarea {
   margin-bottom: 10px;
 }
 
-span.btn-menu {
-  height: 52px;
-  float: right;
+/* header */
+
+#main-nav {
+  background-color: #f5f5f5;
+  border-bottom: 1px solid #e5e5e5;
+
+  span.btn-menu {
+    padding: 8px 0;
+    height: 100%;
+    float: right;
+
+    color: $navbar-default-color;
+    font-size: 36px;
+
+    &:hover {
+      color: $navbar-default-link-hover-color;
+    }
+    @media (min-width: $screen-sm-min) {
+      display: none;
+    }
+  }
+  
+  li:last-child a {
+    color: purple;
+  }
 }
 
 /* sidebar */

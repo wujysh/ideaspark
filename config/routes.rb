@@ -5,6 +5,7 @@ IdeaSpark::Application.routes.draw do
 	             :sign_out_via => [ :delete, :post ]
   resources :users
   resources :sessions
+  resources :ideas
 
   root  'static_pages#home'
   match '/about',   to: 'static_pages#about', via: :get

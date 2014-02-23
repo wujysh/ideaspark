@@ -64,7 +64,7 @@ ActiveRecord::Schema.define(version: 20140223192914) do
   create_table "ideas", force: true do |t|
     t.string   "title",                 default: "", null: false
     t.string   "content",               default: "", null: false
-    t.integer  "phrase",                default: 0,  null: false
+    t.integer  "phase",                 default: 0,  null: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "cached_votes_total",    default: 0

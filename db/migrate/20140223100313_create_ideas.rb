@@ -7,5 +7,7 @@ class CreateIdeas < ActiveRecord::Migration
 
       t.timestamps
     end
+ 
+    add_index :ideas, :title, unique: true
   end
 end

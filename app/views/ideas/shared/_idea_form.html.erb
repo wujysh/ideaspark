@@ -1,5 +1,5 @@
 <%= form_for(:idea, :url => new_idea_path,
-                    :html => { :role => "form" }) do |f| %>
+                    :html => { :role => "form", :class => 'col-md-8 col-md-offset-2' }) do |f| %>
   <div class="form-group">
     <%= f.label :title %>
     <%= f.text_field :title, :autofocus => true, :class => "form-control" %>

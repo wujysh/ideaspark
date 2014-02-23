@@ -5,18 +5,11 @@
     <nav id="navlist" class="navbar-collapse collapse" role="navigation">
       <ul class="nav navbar-nav navbar-right">
         <% if user_signed_in? %>
-          <li><%= current_user.name %></li>
-          <li id="fat-menu" class="dropdown">
-            <a class="dropdown-toggle sr-only" id="account-menu" role="button" data-toggle="dropdown" data-target="#" href="/profile">Account<b class="caret"></b></a>
-            <ul class="dropdown-menu" role="menu" aria-labelledby="account-menu">
-              <li role="presentation"><%= link_to "Profile", edit_user_registration_path, role: "menuitem", tabindex: "-1" %></li>
-              <li class="disabled" role="presentation"><%= link_to "Settings", '#', role: "menuitem", tabindex: "-1" %></li>
-              <li class="divider"></li>
-              <li role="presentation"><%= link_to "Sign out", destroy_user_session_path, method: "delete", role: "menuitem", tabindex: "-1" %></li>
-            </ul>
-          </li>
+          <li><%= link_to current_user.name, edit_user_registration_path %></li>
+          <li class="disabled"><%= link_to "Settings", '#' %></li>
+          <li><%= link_to "Sign out", destroy_user_session_path, method: "delete" %></li>
         <% else %>
-	  <li><%= link_to "Sign up", new_user_registration_path %></li>
+          <li><%= link_to "Sign up", new_user_registration_path %></li>
           <li><%= link_to "Sign in", new_user_session_path %></li>
         <% end %>
       </ul>

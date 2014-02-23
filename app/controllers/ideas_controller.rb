@@ -1,11 +1,14 @@
 class IdeasController < ApplicationController
   load_and_authorize_resource
+  skip_authorize_resource :only => :new
  
   def index
     @ideas = Idea.paginate(page: params[:page])
   end
   
   def new
+    skip_authorize
+
     @idea = Idea.new
   end 
 

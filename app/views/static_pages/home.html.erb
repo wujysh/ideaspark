@@ -1,2 +1,8 @@
-<h1>Read, write and discuss ideas.</h1>
+<% unless user_signed_in? %>
+  <div id="unsigned-in-promo" class="jumbotron">
+    <img src="assets/bulb.png" alt="Inspiration bulb">
+    <h1>Read, write and discuss ideas.</h1>
+    <button type="button" class="btn btn-large btn-primary">Get Started</button>
+  </div>
+<% end %>
 

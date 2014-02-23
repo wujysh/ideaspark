@@ -60,3 +60,7 @@ gem 'devise'
 gem 'cancan'
 gem 'rolify'
 
+gem 'acts-as-taggable-on'
+gem 'acts_as_votable'
+gem 'commontator'
+

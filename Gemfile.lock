@@ -25,6 +25,9 @@ GEM
       multi_json (~> 1.3)
       thread_safe (~> 0.1)
       tzinfo (~> 0.3.37)
+    acts-as-taggable-on (3.0.1)
+      rails (>= 3, < 5)
+    acts_as_votable (0.8.0)
     arel (4.0.2)
     atomic (1.1.14)
     bcrypt-ruby (3.1.2)
@@ -53,6 +56,9 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.7.0)
+    commontator (4.2.2)
+      jquery-rails
+      rails (>= 3.1)
     devise (3.2.3)
       bcrypt-ruby (~> 3.0)
       orm_adapter (~> 0.1)
@@ -202,11 +208,14 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  acts-as-taggable-on
+  acts_as_votable
   bcrypt-ruby (~> 3.1.2)
   bootstrap-sass (~> 3.1.1)
   cancan
   capybara
   coffee-rails (~> 4.0.0)
+  commontator
   devise
   factory_girl_rails
   guard-spork

@@ -7,8 +7,6 @@ class IdeasController < ApplicationController
   end
   
   def new
-    skip_authorize
-
     @idea = Idea.new
   end 
 

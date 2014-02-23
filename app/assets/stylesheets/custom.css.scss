@@ -1,4 +1,5 @@
 @import "bootstrap";
+@import "bootstrap-tagsinput";
 
 html {
   overflow-y: scroll;
@@ -22,6 +23,10 @@ textarea {
 
 .center h1 {
   margin-bottom: 10px;
+}
+
+.alert {
+  margin-top: 1em;
 }
 
 #copying {
@@ -53,7 +58,7 @@ textarea {
     }
   }
 }
-  
+
 /* sidebar */
 
 aside {

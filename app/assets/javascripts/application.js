@@ -15,4 +15,5 @@
 //= require turbolinks
 //= require bootstrap
 //= require bootstrap-tagsinput
+//= require typeahead.bundle.js
 //= require_tree .

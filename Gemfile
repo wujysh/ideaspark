@@ -63,4 +63,4 @@ gem 'rolify'
 gem 'acts-as-taggable-on'
 gem 'acts_as_votable'
 gem 'commontator'
-
+gem 'will_paginate'

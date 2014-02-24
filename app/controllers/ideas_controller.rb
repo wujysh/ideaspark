@@ -30,6 +30,23 @@ class IdeasController < ApplicationController
   def show
     @idea = Idea.find(params[:id])
   end
+  
+  def upvote
+    @idea = Idea.find(params[:id])
+    @idea.liked_by current_user
+      render :json => { :message => 'Upvote successfully' }
+    else
+      render :json => { :message => 'Cannot upvote' }
+    end
+
+  def downvote
+    @idea = Idea.find(params[:id])
+    @idea.downvote_by current_user
+      render :json => { :message => 'Downvote successfully' }
+    else
+      render :json => { :message => 'Cannot downvote' }
+    end
+  end
 
   private
     def idea_params

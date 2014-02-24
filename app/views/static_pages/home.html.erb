@@ -4,19 +4,14 @@
     <div id="unsigned-in-promo" class="jumbotron">
       <img src="assets/bulb.png" alt="Inspiration bulb">
       <h1>Read, write and discuss ideas.</h1>
-      <button type="button" class="btn btn-large btn-primary">Get Started</button>
+      <%= link_to 'Get Started', new_user_registration_path, :class => "btn btn-large btn-primary" %>
+    </div>
+  </div>
+<% else %>
+  <div class="container">
+    <div class="new-idea-bar">
+      <h1>A new thought? Why not publish it for us?</h1>
+      <%= link_to 'Create a new idea!', new_idea_path, :class => 'btn btn-large btn-success' %>
     </div>
   </div>
 <% end %>
-<div class="container">
-  <div class="new-idea-bar">
-    <h1>A new thought? Why not publish it for us?</h1>
-    <%= link_to 'Create a new idea!', new_idea_path, :class => 'btn btn-large btn-success' %>
-  </div>
-  <nav class="idea-list">
-    <ul class="nav nav-tabs">
-      <li class="active"><a href="#">New</a></li>
-      <li><a href="#">All</a></li>
-    </ul>
-  </nav>
-</div>

@@ -8,3 +8,16 @@ $(document).on 'ready page:change', ->
       @tagsinput 'input'
         .typeahead 'setQuery', '';
         ), $('#tag-input')
+    
+  $('.idea-form')
+    .submit ->
+      tags = $('#tag-input').val() || ''
+      $('.idea-form').append "<input type=\"hidden\" name='\idea[tags]'\" value=\"#{tags}\">"
+      valuesToSubmit = @serialize()
+      $.ajax
+        url: @attr('action')
+        data: valuesToSubmit
+        dataType: "JSON"
+        .success (json)->
+          console.log json
+      return false

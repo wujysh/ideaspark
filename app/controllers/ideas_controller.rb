@@ -1,6 +1,4 @@
 class IdeasController < ApplicationController
-  load_and_authorize_resource
-  skip_authorize_resource :only => :new
  
   def index
     @ideas = Idea.paginate(page: params[:page])
@@ -12,10 +10,9 @@ class IdeasController < ApplicationController
 
   def create
     @idea = Idea.new(idea_params)
+
     if @idea.save
-      # process when idea got saved
-      idea.tag_list = params[:tags]  # seperated by ','
-      redirect_to @idea, :success => 'Idea created'
+      redirect_to @idea, :success => 'Idea created.'
     else
       render 'new'
     end
@@ -23,7 +20,6 @@ class IdeasController < ApplicationController
 
   def update
     if @idea.update_attributes(idea_params)
-      idea.tag_list = params[:tags]
       redirect_to @idea, :success => 'Idea updated'
     else
       render 'edit'
@@ -32,23 +28,30 @@ class IdeasController < ApplicationController
 
   def show
     @idea = Idea.find(params[:id])
-    @tags = @idea.tag_list
   end
 
-  def tagged
-    if params[:tag].present? 
-      @ideas = Idea.tagged_with(params[:tag]).paginate(page: params[:page])
-    else 
-      @ideas = Idea.paginate(page: params[:page])
-    end  
+  def upvote
+    @idea = Idea.find(params[:id])
+
+    if @idea.liked_by current_user
+      render :json => { :message => 'Upvote successfully' }
+    else
+      render :json => { :message => 'Cannot upvote' }
+    end
   end
 
-  def put
-    # TODO:
+  def downvote
+    @idea = Idea.find(params[:id])
+
+    if @idea.downvote_by current_user
+      render :json => { :message => 'Downvote successfully' }
+    else
+      render :json => { :message => 'Cannot downvote' }
+    end
   end
 
   private
     def idea_params
-      params.require(:idea).premit(:title, :content, :phrase, :tags)
+      params.require(:idea).permit(:title, :content, :phase, :tag_list)
     end
 end

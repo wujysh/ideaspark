@@ -13,7 +13,8 @@ class IdeasController < ApplicationController
   def create
     @idea = Idea.new(idea_params)
     if @idea.save
-      # process when idea got saved
+      @idea.tag_list = params[:tags]
+      redirect_to @idea, :success => 'Idea created.'
     else
       render 'new'
     end
@@ -21,6 +22,7 @@ class IdeasController < ApplicationController
 
   def update
     if @idea.update_attributes(idea_params)
+      idea.tag_list = params[:tags]
       redirect_to @idea, :success => 'Idea updated'
     else
       render 'edit'
@@ -29,6 +31,10 @@ class IdeasController < ApplicationController
 
   def show
     @idea = Idea.find(params[:id])
+  end
+
+  def put
+    # TODO:
   end
   
   def upvote
@@ -50,6 +56,6 @@ class IdeasController < ApplicationController
 
   private
     def idea_params
-      params.require(:idea).premit(:title, :content, :phrase)
+      params.require(:idea).premit(:title, :content, :phase, :tags)
     end
 end

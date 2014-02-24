@@ -1,0 +1,13 @@
+<% provide(:title, 'All ideas') %>
+
+<div class="container">
+  <div class="row">
+    <h2 class="col-md-6 col-md-offset-2">All ideas</h2>
+  </div>
+
+  <%= will_paginate %>
+    <div class="ideas list-group">
+      <%= render @ideas %>
+    </div>
+  <%= will_paginate %>
+</div>

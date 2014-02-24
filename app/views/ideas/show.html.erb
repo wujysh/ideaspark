@@ -1,25 +1,28 @@
-<% provide(:title, full_title(idea.title)) %>
+<% provide(:title, full_title(@idea.title)) %>
 
 <div class="container">
-  <div class="voter">
-    <span class="glyphicon glyphicon-thumbs-up"></span>
-    <span class="glyphicon glyphicon-thumbs-down"></span>
-  </div>
-  <section class="col-md-9 panel panel-info">
-    <header class="panel-heading">
-      <h2 class=""><%= idea.name %></h2>
-      <span class="glyphicon glyphicon-tags"></span>
-      <div class="tags">
-        <% tag.each do |t| %>
-          <div class="tag label btn-info md">
-            <span><% t %></span>
+  <div class="row">
+    <div class="col-md-offset-1 col-md-8">
+      <section class="panel panel-info">
+        <header class="panel-heading">
+          <h2 class=""><%= @idea.title %></h2>
+          <span class="glyphicon glyphicon-tags"></span>
+          <div class="tags">
+            <% @idea.tags.each do |t| %>
+              <div class="tag label btn-info md">
+                <span><%= link_to t.name, tag_path(t.name) %></span>
+              </div>
+            <% end %>
           </div>
-        <% end %>
-      </div>
-    </header>
-    <section class="panel-body">
-      <%= idea.content %>
-    </section>
-  </section>
-  <%= commontator_thread(commontable) %>
+          <div class="voter">
+            <span class="glyphicon glyphicon-thumbs-up"></span>
+            <span class="glyphicon glyphicon-thumbs-down"></span>
+          </div>
+        </header>
+        <section class="panel-body">
+          <%= @idea.content %>
+        </section>
+      </section>
+    </div>
+  </div>
 </div>

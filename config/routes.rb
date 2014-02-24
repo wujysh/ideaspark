@@ -7,6 +7,7 @@ IdeaSpark::Application.routes.draw do
   resources :ideas
   match '/ideas/:id/upvote',   to: 'ideas#upvote',   via: :put
   match '/ideas/:id/downvote', to: 'ideas#downvote', via: :put
+  resources :tags, via: [:get]
 
   match '/about',   to: 'static_pages#about', via: :get
   root  'static_pages#home'

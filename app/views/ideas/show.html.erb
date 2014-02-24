@@ -1,0 +1,21 @@
+<% provide(:title, full_title(idea.title)) %>
+
+<div class="container">
+  <section class="col-md-9 panel panel-info">
+    <header class="panel-heading">
+      <h2 class=""><%= idea.name %></h2>
+      <span class="glyphicon glyphicon-tags"></span>
+      <div class="tags">
+        <% tag.each do |t| %>
+          <div class="tag label btn-info md">
+            <span><% t %></span>
+          </div>
+        <% end %>
+      </div>
+    </header>
+    <section class="panel-body">
+      <%= idea.content %>
+    </section>
+  </section>
+  <%= commontator_thread(commontable) %>
+</div>

@@ -12,6 +12,7 @@ class IdeasController < ApplicationController
 
   def create
     @idea = Idea.new(idea_params)
+
     if @idea.save
       @idea.tag_list = params[:tags]
       redirect_to @idea, :success => 'Idea created.'
@@ -39,15 +40,18 @@ class IdeasController < ApplicationController
   
   def upvote
     @idea = Idea.find(params[:id])
-    @idea.liked_by current_user
+
+    if @idea.liked_by current_user
       render :json => { :message => 'Upvote successfully' }
     else
       render :json => { :message => 'Cannot upvote' }
     end
+  end
 
   def downvote
     @idea = Idea.find(params[:id])
-    @idea.downvote_by current_user
+
+    if @idea.downvote_by current_user
       render :json => { :message => 'Downvote successfully' }
     else
       render :json => { :message => 'Cannot downvote' }

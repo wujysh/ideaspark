@@ -5,5 +5,27 @@
     <h2 class="col-md-6 col-md-offset-2">New idea</h2>
   </div>
 
-  <%= render 'ideas/shared/idea_form' %>
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <%= form_for(:idea, :url => ideas_path,
+                   :html => { :role => "form", :id => "idea-form" }) do |f| %>
+          <div class="form-group">
+            <%= f.label :title %>
+            <%= f.text_field :title, :autofocus => true, :class => "form-control" %>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :content %>
+            <%= f.text_area :content, :class => "form-control contents" %>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :tag %>
+            <input class="form-control" data-role="tagsinput" id="tag-input" name="idea[tag_list]">
+          </div>
+
+          <%= f.submit "Save", :class => "btn btn-large btn-success" %>
+      <% end %>
+    </div>
+  </div>
 </div>

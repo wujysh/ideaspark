@@ -1,6 +1,6 @@
 class StaticPagesController < ApplicationController
   def home
-    @idea = Idea.all
+    @static_pages = Idea.paginate(page: params[:page], :per_page => 30)
   end
 
   def help

@@ -6,11 +6,14 @@
       <section class="panel panel-info">
         <header class="panel-heading">
           <h2 class=""><%= @idea.title %></h2>
+          <button class="pull-right btn btn-large btn-alert">
+            <%= link_to 'Edit', edit_idea_path %>
+          </button>
           <span class="glyphicon glyphicon-tags"></span>
           <div class="tags">
             <% @idea.tags.each do |t| %>
               <div class="tag label btn-info md">
-                <span><%= link_to t.name, tag_path(t.name) %></span>
+                <span><%= t.name %></span>
               </div>
             <% end %>
           </div>

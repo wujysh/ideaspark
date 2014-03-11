@@ -1,7 +1,7 @@
 class IdeasController < ApplicationController
  
   def index
-    @ideas = Idea.paginate(page: params[:page])
+    @ideas = Idea.paginate(page: params[:page], :per_page => 30)
   end
   
   def new
@@ -18,7 +18,13 @@ class IdeasController < ApplicationController
     end
   end
 
+  def edit
+    @idea = Idea.find(params[:id])
+  end
+
   def update
+    @idea = Idea.find(params[:id])
+
     if @idea.update_attributes(idea_params)
       redirect_to @idea, :success => 'Idea updated'
     else

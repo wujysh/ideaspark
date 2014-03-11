@@ -1,5 +1,5 @@
 section {
-  margin-top: 2em;
+  margin-top: 0.5em;
 }
 
 .tags {
@@ -13,4 +13,20 @@ section {
 .voter {
   float: right;
   font-size: 22px;
+}
+
+button {
+  margin-top: -40px;
+}
+
+.contents {
+  min-height: 400px;
+}
+
+.bootstrap-tagsinput {
+  width: 400px;
+}
+
+h2 {
+  margin-top: 4px;
 }
